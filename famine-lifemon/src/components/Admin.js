@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Typography, Card, Accordion, AccordionSummary, AccordionDetails, Slider, Input, Grid, FormControlLabel, Checkbox, RadioGroup, Radio, FormGroup, Switch } from '@mui/material';
+import { Typography, Card, Accordion, AccordionSummary, AccordionDetails, Slider, Grid, FormControlLabel, Checkbox, RadioGroup, Radio, FormGroup, Switch } from '@mui/material';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
@@ -20,14 +20,6 @@ export default function Admin() {
 
 	const handleExpand = (panel) => (event, isExpanded) => {
 		setExpanded(isExpanded ? panel : "");
-	}
-
-	function handleHBlur () {
-		if (formData.happiness < -5) {
-			setFormData({...formData, happiness: -5});
-		} else if (formData.happiness > 5) {
-			setFormData({...formData, happiness: 5});
-		}
 	}
 
 	return (
@@ -54,21 +46,9 @@ export default function Admin() {
 								/>
 							</Grid>
 							<Grid item xs={2}>
-								<Input 
-									fullWidth
-									value={formData.happiness}
-									size="small"
-									onChange={
-										(e) => setFormData({...formData, happiness: parseInt(e.target.value)})
-									}
-									onBlur={handleHBlur}
-									inputProps={{
-										step: 1,
-										min: -5,
-										max: 5,
-										type: 'number',
-									}}
-								/>
+								<Typography>
+									{formData.happiness}
+								</Typography>
 							</Grid>
 						</Grid>
 
@@ -88,21 +68,9 @@ export default function Admin() {
 								/>
 							</Grid>
 							<Grid item xs={2}>
-								<Input 
-									fullWidth
-									value={formData.health}
-									size="small"
-									onChange={
-										(e) => setFormData({...formData, health: parseInt(e.target.value)})
-									}
-									onBlur={handleHBlur}
-									inputProps={{
-										step: 1,
-										min: -5,
-										max: 5,
-										type: 'number',
-									}}
-								/>
+								<Typography>
+									{formData.health}
+								</Typography>
 							</Grid>
 						</Grid>
 
@@ -122,21 +90,9 @@ export default function Admin() {
 								/>
 							</Grid>
 							<Grid item xs={2}>
-								<Input 
-									fullWidth
-									value={formData.money}
-									size="small"
-									onChange={
-										(e) => setFormData({...formData, money: parseInt(e.target.value)})
-									}
-									onBlur={handleHBlur}
-									inputProps={{
-										step: 100,
-										min: -1500,
-										max: 1500,
-										type: 'number',
-									}}
-								/>
+								<Typography>
+									{formData.money}
+								</Typography>
 							</Grid>
 						</Grid>
 						<FormControlLabel disabled={formData.money < 800} control={
